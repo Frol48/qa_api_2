@@ -13,10 +13,7 @@ import static io.restassured.http.ContentType.JSON;
 public class TestSpecs {
     public static RequestSpecification requestSpec = with()
             .filter(withCustomTemplates())
-            .log().uri()
-            .log().method()
-            .log().headers()
-            .log().body()
+            .log().all()
             .contentType(JSON);
 
     public static ResponseSpecification responseSpec = new ResponseSpecBuilder()
