@@ -27,7 +27,7 @@ public class RemovingItemTest  extends TestBase{
         );
 
         step("Добавление книги в список", () ->
-            Books.addBook(responseAuthorization, new AddBookToListRequestModel(), TestData.isbn)
+            Books.addBook(responseAuthorization, TestData.isbn)
         );
 
         step("Проверка добаления книги", () -> {
@@ -40,7 +40,7 @@ public class RemovingItemTest  extends TestBase{
             Books.deleteBook(responseAuthorization, TestData.isbn)
         );
 
-        step("Проверка удаления книги", ()->{
+        step("Проверка удаления книги", ()-> {
             profilePage.open()
                             .checkUserName(responseAuthorization.getUserName())
                             .checkingAbsenceBook(TestData.isbn);

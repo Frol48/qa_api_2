@@ -25,11 +25,12 @@ public class Books {
                 .statusCode(204);
     }
 
-    public static void addBook(LoginResponseModel responseAuthorization, AddBookToListRequestModel request, String isbn1) {
+    public static void addBook(LoginResponseModel responseAuthorization, String isbn1) {
         AddBookToListRequestModel.CollectionOfIsbns isbn = new AddBookToListRequestModel.CollectionOfIsbns(isbn1);
         List<AddBookToListRequestModel.CollectionOfIsbns> isbnList = new ArrayList<>();
         isbnList.add(isbn);
 
+        AddBookToListRequestModel request = new AddBookToListRequestModel();
         request.setUserId(responseAuthorization.getUserId());
         request.setCollectionOfIsbns(isbnList);
 
